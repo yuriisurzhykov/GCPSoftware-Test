@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.hilt.lifecycle.ViewModelInject
-import com.bumptech.glide.Glide
+import androidx.fragment.app.viewModels
 import com.yuriysurzhikov.gcpsoftwaretest.R
-import kotlinx.android.synthetic.main.fragment_image.*
 import kotlinx.android.synthetic.main.fragment_text.*
 
 class TextFragment: Fragment() {
+
+    private val viewModel: TextFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

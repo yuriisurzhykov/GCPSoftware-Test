@@ -1,22 +1,22 @@
 package com.yuriysurzhikov.gcpsoftwaretest.ui.url
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.os.Build
 import android.os.Bundle
-import android.view.ActionMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.yuriysurzhikov.gcpsoftwaretest.R
 import kotlinx.android.synthetic.main.fragment_webview.*
-import okhttp3.internal.cache.CacheStrategy
 
 class UrlFragment: Fragment() {
+
+    private val viewModel: UrlFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +31,7 @@ class UrlFragment: Fragment() {
         arguments?.getString("param")?.let { bindParam(it) }
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun bindParam(param: String) {
         web_view.settings.javaScriptEnabled = true
         web_view.webViewClient = CustomWebView(progress_bar)
